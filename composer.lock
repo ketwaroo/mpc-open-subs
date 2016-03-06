@@ -1,0 +1,56 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "98afecadfd476393389fa2515f900967",
+    "content-hash": "524cd3c5c8734c1bb52414fdf9655e88",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "ketwaroo/debug-helper",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ketwaroo/debug-helper.git",
+                "reference": "734ce1ca68436563196914e28b3bc71bafc25c2b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ketwaroo/debug-helper/zipball/734ce1ca68436563196914e28b3bc71bafc25c2b",
+                "reference": "734ce1ca68436563196914e28b3bc71bafc25c2b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "debug-helper.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yaasir Ketwaroo",
+                    "email": "ketwaroo.yaasir@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/ketwaroo/debug-helper/tree/master",
+                "issues": "https://github.com/ketwaroo/debug-helper/issues"
+            },
+            "time": "2015-10-07 03:44:30"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "ketwaroo/debug-helper": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

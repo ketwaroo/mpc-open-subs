@@ -1,0 +1,22 @@
+{
+    "name": "ketwaroo/php-open-subs",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yaasir Ketwaroo",
+            "email": "ketwaroo.yaasir@gmail.com"
+        }
+    ], 
+    "autoload": {
+        "psr-0": {
+            "Ketwaroo\\": "src/"
+        }
+    },
+    "require": {
+
+    },
+    "require-dev": {
+        "ketwaroo/debug-helper": "dev-master"
+    }
+}
