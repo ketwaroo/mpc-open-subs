@@ -13,25 +13,30 @@ if (!empty($_GET['name']))
     }
     else
     {
-
-        $config = new \Ketwaroo\OpenSubtitlesApi\Config();
-
+    
         $configSrc = json_decode(file_get_contents(__DIR__ . '/config.json'));
-
+        $config = new \Ketwaroo\OpenSubtitlesApi\Config();
         $config->setUsername($configSrc->username)
                 ->setPassword($configSrc->password)
                 ->setTokenCacheFile(__DIR__ . '/token-cache')
-                ->setLanguage($configSrc->language);
-
-        $op = new \Ketwaroo\OpenSubtitlesApi($config);
-
+                ->setLanguage($configSrc->language)
+                ->setUseragent($configSrc->userAgent);
+   
         $name = pathinfo($_GET['name'][0], PATHINFO_FILENAME);
 
+        // match season ep
         $seasonEp = [];
         preg_match('~s(\d+)e(\d+)~i', $name, $seasonEp);
         list($seasonEpString, $season, $episode) = array_pad($seasonEp, 3, '');
+        
+        $rep = [
+            '~\[[^\]]+\]~'=>' ', // remove "[tags]"
+            '~[^a-z0-9\' ]+~i'=>' ', // none regular characters to string
+            '~x264|xvid|2hd~i'=>' ', // remove unrelated words.
+             '~ +~i'=>' ', //cleanup.
+        ];
 
-        $filteredName = preg_replace(['~[^a-z0-9\' ]+~i', '~ +~'], ['', ' '], str_replace($seasonEpString, '', $name));
+        $filteredName = trim(preg_replace(array_keys($rep),array_values($rep), str_replace($seasonEpString, '', $name)));
 
         $query = array_filter([
             'query'         => $filteredName,
@@ -44,6 +49,11 @@ if (!empty($_GET['name']))
         {
             exit;
         }
+        
+
+
+        $op = new \Ketwaroo\OpenSubtitlesApi($config);
+
 
         $response = $op->searchSubtitles([
             $query
