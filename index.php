@@ -34,6 +34,7 @@ if (!empty($_GET['name']))
 
         $rep = [
             '~\[[^\]]+\]~'               => ' ', // remove "[tags]"
+            '~\{[^\}]+\}~'               => ' ', // remove "{tags}"
             '~[^a-z0-9\' ]+~i'           => ' ', // none regular characters to string
             '~' . implode('|', $cruft) . '~i' => ' ', // remove unrelated words.
             '~ +~i'                      => ' ', //cleanup.
