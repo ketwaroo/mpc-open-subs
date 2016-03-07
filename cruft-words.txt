@@ -1,0 +1,8 @@
+x264
+1080p
+720p
+2hd
+hdtv
+bluray
+BD
+DVD
